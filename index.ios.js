@@ -124,52 +124,54 @@ export default class AwesomeProject extends Component {
               </View>
             </View>
           </View>
-              <ListView style={{backgroundColor:'red'}} dataSource={this.state.dataSource} renderRow={
-                (rowData, sectionID, rowID, highlightRow) => {
-                  if (rowID === "0") {
-                    return (
-                        <View style={styles.listStyle}>
-                          {/*<View style={styles.leftLineView}>*/}
-                              {/*<View>*/}
-                                   {/*<Text>看</Text>*/}
-                              {/*</View>*/}
-                          {/*</View>*/}
-                          {/*<View style={styles.cellStyle}>*/}
-                            {/*<Text style={*/}
-                              {/*styles.highLightTitleStyle*/}
-                            {/*} numberOfLines={1}*/}
-                                  {/*ellipsizeMode={'tail'}>{rowData.title}</Text>*/}
-                            {/*<Text style={*/}
-                              {/*styles.highLightTimeStyle*/}
-                            {/*}>{rowData.time}</Text>*/}
-                            {/*<View style={styles.lineStyle}></View>*/}
-                          {/*</View>*/}
+          <View style={styles.listViewBox}>
+            <ListView style={{flex:1}} dataSource={this.state.dataSource} renderRow={
+              (rowData, sectionID, rowID, highlightRow) => {
+                if (rowID === "0") {
+                  return (
+                      <View style={styles.listStyle}>
+                        <View style={styles.leftLineView}>
+                          <View>
+                            <Text>看</Text>
+                          </View>
                         </View>
-                    );
-                  } else {
-                    return (
-                        <View style={styles.listStyle}>
-                          {/*<View style={styles.leftLineView}>*/}
-                            {/*<View>*/}
-                              {/*<Text>看</Text>*/}
-                            {/*</View>*/}
-                          {/*</View>*/}
-                          {/*<View style={styles.cellStyle}>*/}
-                            {/*<Text style={*/}
-                              {/*styles.titleStyle*/}
-                            {/*} numberOfLines={1}*/}
-                                  {/*ellipsizeMode={'tail'}>{rowData.title}</Text>*/}
-                            {/*<Text*/}
-                                {/*style={*/}
-                                  {/*styles.timeStyle*/}
-                                {/*}>{rowData.time}</Text>*/}
-                            {/*<View style={styles.lineStyle}></View>*/}
-                          {/*</View>*/}
+                        <View style={styles.cellStyle}>
+                          <Text style={
+                            styles.highLightTitleStyle
+                          } numberOfLines={1}
+                                ellipsizeMode={'tail'}>{rowData.title}</Text>
+                          <Text style={
+                            styles.highLightTimeStyle
+                          }>{rowData.time}</Text>
+                          <View style={styles.lineStyle}></View>
                         </View>
-                    );
-                  }
+                      </View>
+                  );
+                } else {
+                  return (
+                      <View style={styles.listStyle}>
+                        <View style={styles.leftLineView}>
+                          <View>
+                            <Text>看</Text>
+                          </View>
+                        </View>
+                        <View style={styles.cellStyle}>
+                          <Text style={
+                            styles.titleStyle
+                          } numberOfLines={1}
+                                ellipsizeMode={'tail'}>{rowData.title}</Text>
+                          <Text
+                              style={
+                                styles.timeStyle
+                              }>{rowData.time}</Text>
+                          <View style={styles.lineStyle}></View>
+                        </View>
+                      </View>
+                  );
                 }
-              }/>
+              }
+            }/>
+          </View>
         </View>
     );
   }
@@ -184,11 +186,17 @@ const styles = StyleSheet.create({
   },
 
   topView: {
+    flex: 1,
     backgroundColor: '#ffffff',
     marginTop: 104,
     width: 375,
     height: 76,
     flexDirection: 'row',
+  },
+  listViewBox: {
+    flex: 7,
+    width:375,
+    backgroundColor:'purple',
   },
   flexTop: {
     flex: 1,
@@ -197,7 +205,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   listStyle: {
-    flex: 1,
     flexDirection:'row',
     height:59, 
     justifyContent:'center',
