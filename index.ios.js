@@ -124,51 +124,52 @@ export default class AwesomeProject extends Component {
               </View>
             </View>
           </View>
-          <View style={{
-            flex: 1,
-            flexDirection: 'row',
-            marginTop: 6,
-            justifyContent: 'space-between'
-          }}>
-            <View style={styles.pointLineStyle}>
-              <Image style={styles.columnLineStyle} source={require('./image/TimeLine.png')}/>
-            </View>
-            <View style={styles.listStyle}>
-              <ListView dataSource={this.state.dataSource} renderRow={
+              <ListView style={{backgroundColor:'red'}} dataSource={this.state.dataSource} renderRow={
                 (rowData, sectionID, rowID, highlightRow) => {
-
                   if (rowID === "0") {
                     return (
-                        <View style={styles.cellStyle}>
-                          <Text style={
-                            styles.highLightTitleStyle
-                          } numberOfLines={1}
-                                ellipsizeMode={'tail'}>{rowData.title}</Text>
-                          <Text style={
-                            styles.highLightTimeStyle
-                          }>{rowData.time}</Text>
-                          <View style={styles.lineStyle}></View>
+                        <View style={styles.listStyle}>
+                          {/*<View style={styles.leftLineView}>*/}
+                              {/*<View>*/}
+                                   {/*<Text>看</Text>*/}
+                              {/*</View>*/}
+                          {/*</View>*/}
+                          {/*<View style={styles.cellStyle}>*/}
+                            {/*<Text style={*/}
+                              {/*styles.highLightTitleStyle*/}
+                            {/*} numberOfLines={1}*/}
+                                  {/*ellipsizeMode={'tail'}>{rowData.title}</Text>*/}
+                            {/*<Text style={*/}
+                              {/*styles.highLightTimeStyle*/}
+                            {/*}>{rowData.time}</Text>*/}
+                            {/*<View style={styles.lineStyle}></View>*/}
+                          {/*</View>*/}
                         </View>
                     );
                   } else {
                     return (
-                        <View style={styles.cellStyle}>
-                          <Text style={
-                            styles.titleStyle
-                          } numberOfLines={1}
-                                ellipsizeMode={'tail'}>{rowData.title}</Text>
-                          <Text
-                              style={
-                                styles.timeStyle
-                              }>{rowData.time}</Text>
-                          <View style={styles.lineStyle}></View>
+                        <View style={styles.listStyle}>
+                          {/*<View style={styles.leftLineView}>*/}
+                            {/*<View>*/}
+                              {/*<Text>看</Text>*/}
+                            {/*</View>*/}
+                          {/*</View>*/}
+                          {/*<View style={styles.cellStyle}>*/}
+                            {/*<Text style={*/}
+                              {/*styles.titleStyle*/}
+                            {/*} numberOfLines={1}*/}
+                                  {/*ellipsizeMode={'tail'}>{rowData.title}</Text>*/}
+                            {/*<Text*/}
+                                {/*style={*/}
+                                  {/*styles.timeStyle*/}
+                                {/*}>{rowData.time}</Text>*/}
+                            {/*<View style={styles.lineStyle}></View>*/}
+                          {/*</View>*/}
                         </View>
                     );
                   }
                 }
               }/>
-            </View>
-          </View>
         </View>
     );
   }
@@ -195,30 +196,22 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
   },
-  pointLineStyle: {
-    flex: 1,
-    flexDirection: 'column',
-    justifyContent: 'center',
-    backgroundColor:'#fff',
-    marginRight:0,
-  },
-  columnLineStyle: {
-    marginTop: 20,
-    alignSelf: 'center',
-    width: 20,
-    flex: 1,
-    resizeMode:'contain'
-    // backgroundColor: '#dddddd'
-  }
-  ,
   listStyle: {
-    flex: 6,
+    flex: 1,
+    flexDirection:'row',
+    height:59, 
+    justifyContent:'center',
+    backgroundColor:'yellow',
+  },
+  leftLineView: {
+   flex: 1,
+   backgroundColor:'red',
   },
   cellStyle: {
+    flex: 6,
     backgroundColor: '#ffffff',
-    justifyContent: 'center',
-    flex: 1,
-    height: 59,
+
+    // justifyContent: 'center',
   },
   lineStyle: {
     marginTop: 9,
