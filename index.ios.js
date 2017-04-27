@@ -12,8 +12,11 @@ import {
   View,
   ListView,
   Image,
-
+  Dimensions,
 } from 'react-native';
+
+const deviceWidth = Dimensions.get('window').width;
+
 
 export default class AwesomeProject extends Component {
 
@@ -33,7 +36,7 @@ export default class AwesomeProject extends Component {
           title: '第二阶段化疗：吉非替尼',
           time: '2016-9-10~2016-10-10',
         }, {
-          title: '基因检测：EGFR基因19号外显子突变...',
+          title: '基因检测：EGFR基因19号外显子突变过长了吗?',
           time: '2016-8-9',
         }, {
           title: '首次化疗：CP方案',
@@ -62,9 +65,8 @@ export default class AwesomeProject extends Component {
             <View style={styles.flexTop}>
               <View style={{
                 flex: 2,
-                justifyContent: 'center',
+                alignItems: 'flex-end',
                 flexDirection: 'row',
-                marginRight: 10
               }}>
                 <Image style={{
                   width: 55,
@@ -135,15 +137,22 @@ export default class AwesomeProject extends Component {
                             <Text>看</Text>
                           </View>
                         </View>
-                        <View style={styles.cellStyle}>
-                          <Text style={
-                            styles.highLightTitleStyle
-                          } numberOfLines={1}
-                                ellipsizeMode={'tail'}>{rowData.title}</Text>
-                          <Text style={
-                            styles.highLightTimeStyle
-                          }>{rowData.time}</Text>
-                          <View style={styles.lineStyle}></View>
+                        <View style={styles.rowVContent}>
+                          <View style={styles.rowVContentTop}>
+                            <View style={styles.cellStyle}>
+                              <Text style={
+                                styles.highLightTitleStyle
+                              } numberOfLines={1}
+                                    ellipsizeMode={'tail'}>{rowData.title}</Text>
+                              <Text style={
+                                styles.highLightTimeStyle
+                              }>{rowData.time}</Text>
+                            </View>
+                            <View style={styles.arrowView}>
+                              <Image style={styles.arrowStyle} source={require('./image/arrow.png')}></Image>
+                            </View>
+                          </View>
+                          <View style={styles.cellBottomLine}></View>
                         </View>
                       </View>
                   );
@@ -155,16 +164,23 @@ export default class AwesomeProject extends Component {
                             <Text>看</Text>
                           </View>
                         </View>
-                        <View style={styles.cellStyle}>
-                          <Text style={
-                            styles.titleStyle
-                          } numberOfLines={1}
-                                ellipsizeMode={'tail'}>{rowData.title}</Text>
-                          <Text
-                              style={
-                                styles.timeStyle
-                              }>{rowData.time}</Text>
-                          <View style={styles.lineStyle}></View>
+                        <View style={styles.rowVContent}>
+                          <View style={styles.rowVContentTop}>
+                            <View style={styles.cellStyle}>
+                              <Text style={
+                                styles.titleStyle
+                              } numberOfLines={1}
+                                    ellipsizeMode={'tail'}>{rowData.title}</Text>
+                              <Text
+                                  style={
+                                    styles.timeStyle
+                                  }>{rowData.time}</Text>
+                            </View>
+                            <View style={styles.arrowView}>
+                              <Image style={styles.arrowStyle} source={require('./image/arrow.png')}></Image>
+                            </View>
+                          </View>
+                          <View style={styles.cellBottomLine}></View>
                         </View>
                       </View>
                   );
@@ -189,39 +205,45 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#ffffff',
     marginTop: 104,
-    width: 375,
+    width: deviceWidth,
     height: 76,
     flexDirection: 'row',
   },
   listViewBox: {
     flex: 7,
-    width:375,
-    backgroundColor:'purple',
+    width:deviceWidth,
   },
   flexTop: {
     flex: 1,
     alignItems: 'center',
     flexDirection: 'row',
-    justifyContent: 'center',
+    justifyContent: 'space-around',
   },
   listStyle: {
     flexDirection:'row',
     height:59, 
-    justifyContent:'center',
-    backgroundColor:'yellow',
+    backgroundColor:'#ffffff',
   },
   leftLineView: {
-   flex: 1,
-   backgroundColor:'red',
+   flex: 2.5,
+  },
+  rowVContent: {
+   flex: 16,
+    flexDirection:'column',
+    justifyContent:'space-around',
+  },
+  rowVContentTop: {
+    flexDirection:'row'
   },
   cellStyle: {
-    flex: 6,
-    backgroundColor: '#ffffff',
-
-    // justifyContent: 'center',
+    flex: 15,
   },
-  lineStyle: {
-    marginTop: 9,
+  arrowView: {
+    flex: 1,
+    justifyContent:'center',
+  },
+  cellBottomLine: {
+    alignItems:'flex-end',
     backgroundColor: '#DDDDDD',
     height: 1,
   },
@@ -245,14 +267,17 @@ const styles = StyleSheet.create({
     color: '#9e9e9e',
     fontSize: 16,
     flexWrap: 'nowrap',
-    // backgroundColor:'green'
   },
   timeStyle: {
     color: '#a3a3a3',
     fontSize: 12,
     fontFamily: 'STHeitiSC-Medium',
     paddingTop: 1,
-    // backgroundColor:'yellow'
+  },
+  arrowStyle: {
+    // backgroundColor:'red',
+    width:6,
+    height:10,
   }
 });
 
