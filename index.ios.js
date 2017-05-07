@@ -27,32 +27,45 @@ export default class AwesomeProject extends Component {
     this.state = {
       dataSource: ds.cloneWithRows([
         {
-          title: '肺部CT：肿瘤消失',
-          time: '2017-1-21',
+          name: '王伦',
+          department: '胸外科',
+          degree:'主任医师 / 教授',
+          score:'9.8',
+          hospital:'上海市第一人民医院',
+          skill:'肺、食管、贲门、纵隔、胸膜肿瘤的…',
+          diagnoseCount:'488',
+          charge:'3000',
+          fee:'200',
         }, {
-          title: '首次随访：未发现肿瘤',
-          time: '2016-12-1',
+          name: '王伦',
+          department: '胸外科',
+          degree:'主任医师 / 教授',
+          score:'9.8',
+          hospital:'上海市第一人民医院',
+          skill:'肺、食管、贲门、纵隔、胸膜肿瘤的…',
+          diagnoseCount:'488',
+          charge:'3000',
+          fee:'200',
         }, {
-          title: '第二阶段化疗：吉非替尼',
-          time: '2016-9-10~2016-10-10',
+          name: '王伦',
+          department: '胸外科',
+          degree:'主任医师 / 教授',
+          score:'9.8',
+          hospital:'上海市第一人民医院',
+          skill:'肺、食管、贲门、纵隔、胸膜肿瘤的…',
+          diagnoseCount:'488',
+          charge:'3000',
+          fee:'200',
         }, {
-          title: '基因检测：EGFR基因19号外显子突变过长了吗?',
-          time: '2016-8-9',
-        }, {
-          title: '首次化疗：CP方案',
-          time: '2016-6-8~2016-7-7',
-        }, {
-          title: '病理：中低分化腺癌',
-          time: '2016-6-7',
-        }, {
-          title: '左肺大部切除术、肺门淋巴结清扫',
-          time: '2016-6-6',
-        }, {
-          title: '肺部CT：左肺门5cm结节',
-          time: '2016-6-2',
-        }, {
-          title: '初发症状： 咳嗽2周',
-          time: '2016-6-1',
+          name: '王伦',
+          department: '胸外科',
+          degree:'主任医师 / 教授',
+          score:'9.8',
+          hospital:'上海市第一人民医院',
+          skill:'肺、食管、贲门、纵隔、胸膜肿瘤的…',
+          diagnoseCount:'488',
+          charge:'3000',
+          fee:'200',
         },
       ])
     };
@@ -61,130 +74,50 @@ export default class AwesomeProject extends Component {
   render() {
     return (
         <View style={styles.container}>
-          <View style={styles.topView}>
-            <View style={styles.flexTop}>
-              <View style={{
-                flex: 2,
-                alignItems: 'flex-end',
-                flexDirection: 'row',
-              }}>
-                <Image style={{
-                  width: 55,
-                  height: 55,
-                  resizeMode: 'contain',
-                  flex: 1,
-                  justifyContent: 'center',
-                  alignItems: 'center'
-                }} source={require('./image/Oval.png')}>
-                  <Image style={{
-                    width: 48,
-                    height: 48,
-                    resizeMode: 'contain'
-                  }} source={require('./image/Bitmap.png')}/>
-                </Image>
-              </View>
-              <View style={{
-                flex: 7,
-                flexDirection: 'column',
-                justifyContent: 'center',
-                alignSelf: 'flex-start',
-              }}>
-                <View style={{
-                  flex: 1,
-                  flexDirection: 'row',
-                  justifyContent: 'center',
-                  alignItems: 'center'
-                }}>
-                  <Text style={{
-                    flex: 3.6,
-                    fontSize: 14,
-                    fontWeight: "700"
-                  }}>张初华</Text>
-                  <Text style={{
-                    flex: 1,
-                    fontSize: 12.5,
-                    fontWeight: "700"
-                  }}>男</Text>
-                  <Text style={{
-                    flex: 8,
-                    fontSize: 12.5,
-                    fontWeight: "700"
-                  }}>55岁</Text>
-                </View>
-                <Text style={{
-                  flex: 1,
-                  fontSize: 12.5,
-                  fontWeight: "700"
-                }} numberOfLines={1}
-                      ellipsizeMode={'tail'}>右上肺未分化癌 ⅢA期</Text>
-                <Text style={{
-                  flex: 1,
-                  fontSize: 12.5,
-                  fontWeight: "700"
-                }} numberOfLines={1}
-                      ellipsizeMode={'tail'}>简要病史：检查发现颅内占位1+月。</Text>
-              </View>
-            </View>
-          </View>
           <View style={styles.listViewBox}>
-            <ListView style={{flex:1}} dataSource={this.state.dataSource} renderRow={
+            <ListView style={{flex: 1}}
+                      dataSource={this.state.dataSource} renderRow={
               (rowData, sectionID, rowID, highlightRow) => {
-                if (rowID === "0") {
                   return (
                       <View style={styles.listStyle}>
-                        <View style={styles.leftLineView}>
-                          <View>
-                            <Text>看</Text>
-                          </View>
+                        <View style={styles.leftHeaderView}>
+                          <Image style={styles.headerImage} source={require('./image/yianRowHeader.png')}></Image>
                         </View>
                         <View style={styles.rowVContent}>
                           <View style={styles.rowVContentTop}>
-                            <View style={styles.cellStyle}>
-                              <Text style={
-                                styles.highLightTitleStyle
-                              } numberOfLines={1}
-                                    ellipsizeMode={'tail'}>{rowData.title}</Text>
-                              <Text style={
-                                styles.highLightTimeStyle
-                              }>{rowData.time}</Text>
-                            </View>
-                            <View style={styles.arrowView}>
-                              <Image style={styles.arrowStyle} source={require('./image/arrow.png')}></Image>
+                            <View style={styles.rowVTopTextBox}>
+                              <Text style={styles.rowTName} numberOfLines={1}
+                                    ellipsizeMode={'tail'}>{rowData.name}</Text>
+                              <Text style={styles.rowTDepartment} numberOfLines={1}
+                                    ellipsizeMode={'tail'}>{rowData.department}</Text>
+                              <Text style={styles.rowTDegree} numberOfLines={1}
+                                    ellipsizeMode={'tail'}>{rowData.degree}</Text>
+                            </View>               
+                            <View style={styles.rowVTopScore}>
+                                <Image style={styles.rowIScore} source={require('./image/starScore.png')}></Image>
+                              <Text style={styles.rowTScore} numberOfLines={1}
+                                    ellipsizeMode={'tail'}>{rowData.score}</Text>
                             </View>
                           </View>
+                          <Text style={styles.rowTHospital} numberOfLines={1}
+                                ellipsizeMode={'tail'}>{rowData.hospital}</Text>
+                          <Text style={styles.rowTSkill} numberOfLines={1}
+                                ellipsizeMode={'tail'}>{`擅长：${rowData.skill}`}</Text>
+                          <Text style={styles.rowTdiagnoseCount}>{`问诊量 ${rowData.diagnoseCount}`}</Text>
                           <View style={styles.cellBottomLine}></View>
+                          <View style={styles.bottomView}>
+                            <View style={styles.bottomViewBox}>
+                              <Image style={styles.bottomIDocument} source={(require(`./image/yiAnDocument.png`))}></Image>
+                              <Text style={styles.bottomTText}>{`￥ ${rowData.charge}/年`}</Text>
+                            </View>
+                            <View style={styles.bottomViewBox}>
+                              <Image style={styles.bottomIPhone} source={(require(`./image/yiAnPhone.png`))}></Image>
+                              <Text style={styles.bottomTText}>{`￥ ${rowData.fee}`}</Text>
+                            </View>
+                          </View>
                         </View>
                       </View>
                   );
-                } else {
-                  return (
-                      <View style={styles.listStyle}>
-                        <View style={styles.leftLineView}>
-                          <View>
-                            <Text>看</Text>
-                          </View>
-                        </View>
-                        <View style={styles.rowVContent}>
-                          <View style={styles.rowVContentTop}>
-                            <View style={styles.cellStyle}>
-                              <Text style={
-                                styles.titleStyle
-                              } numberOfLines={1}
-                                    ellipsizeMode={'tail'}>{rowData.title}</Text>
-                              <Text
-                                  style={
-                                    styles.timeStyle
-                                  }>{rowData.time}</Text>
-                            </View>
-                            <View style={styles.arrowView}>
-                              <Image style={styles.arrowStyle} source={require('./image/arrow.png')}></Image>
-                            </View>
-                          </View>
-                          <View style={styles.cellBottomLine}></View>
-                        </View>
-                      </View>
-                  );
-                }
               }
             }/>
           </View>
@@ -200,85 +133,118 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#ebf0f2',
   },
-
-  topView: {
-    flex: 1,
-    backgroundColor: '#ffffff',
-    marginTop: 104,
-    width: deviceWidth,
-    height: 76,
-    flexDirection: 'row',
-  },
   listViewBox: {
+    marginTop: 6,
     flex: 7,
-    width:deviceWidth,
-  },
-  flexTop: {
-    flex: 1,
-    alignItems: 'center',
-    flexDirection: 'row',
-    justifyContent: 'space-around',
+    width: deviceWidth,
   },
   listStyle: {
-    flexDirection:'row',
-    height:59, 
-    backgroundColor:'#ffffff',
-  },
-  leftLineView: {
-   flex: 2.5,
+    flexDirection: 'row',
+    height: 148,
+    backgroundColor: '#ffffff',
   },
   rowVContent: {
-   flex: 16,
-    flexDirection:'column',
-    justifyContent:'space-around',
+    flex: 4,
+    flexDirection: 'column',
+    justifyContent: 'space-around',
+  },
+  leftHeaderView: {
+    flex:1,
+    justifyContent:'flex-start',
+    alignItems:'center',
+  },
+  headerImage: {
+    width: 49,
+    height: 49,
   },
   rowVContentTop: {
-    flexDirection:'row'
+    flexDirection:'row',
+    justifyContent:'space-between',
   },
-  cellStyle: {
-    flex: 15,
+  rowVTopTextBox: {
+    width:'60%',
+    flexDirection:'row',
+    justifyContent:'space-between',
+    alignItems:'baseline',
   },
-  arrowView: {
-    flex: 1,
-    justifyContent:'center',
+  rowTName: {
+    fontFamily: 'STHeitiSC-Medium',
+    color:'#00326D',
+    fontWeight:'900',
+    fontSize:15,
+  },
+  rowTDepartment: {
+    fontFamily: 'STHeitiSC-Medium',
+    fontSize:12.5,
+    fontWeight:'700',
+    color:'#323232',
+  },
+  rowTDegree: {
+    fontSize:12.5,
+    fontWeight:'700',
+    color:'#323232',
+  },
+  rowTHospital: {
+    fontSize:12.5,
+    fontWeight:'700',
+    color:'#323232',
+  },
+  rowVTopScore: {
+    marginRight:15,
+    flexDirection:'row',
+    alignItems:'center'
+  },
+  rowIScore: {
+     width:9,
+     height:9,
+  },
+  rowTScore: {
+    fontFamily: 'STHeitiSC-Medium',
+    color:'#FFB400',
+    fontSize:15,
+  },
+  rowTSkill: {
+    fontFamily: 'STHeitiSC-Medium',
+    fontSize:12.5,
+    fontWeight:'700',
+    color:'#9B9B9B',
+    marginRight:40,
+  },
+  rowTdiagnoseCount: {
+    fontFamily: 'STHeitiSC-Medium',
+    fontSize:12.5,
+    fontWeight:'700',
+    color:'#9B9B9B',
   },
   cellBottomLine: {
-    alignItems:'flex-end',
-    backgroundColor: '#DDDDDD',
-    height: 1,
+    width:'100%',
+    height:1,
+    backgroundColor:'#DADADA'
   },
-  highLightTitleStyle: {
-    color: '#2bb063',
-    fontSize: 16,
-    flexWrap: 'nowrap',
-    fontWeight: "900",
+  bottomView: {
+    flexDirection:'row',
+    width:'70%',
+    justifyContent:'space-around'
   },
-  highLightTimeStyle: {
-    color: '#2bb063',
-    fontSize: 16,
-    flexWrap: 'nowrap',
-    paddingTop: 1,
+  bottomIDocument: {
+    width:13,
+    height:16,
+  },
+  bottomViewBox: {
+    flex:1,
+    flexDirection:'row',
+  },
+  bottomIPhone: {
+    width:15,
+    height:15,
+  },
+  bottomTText: {
+    fontFamily: 'STHeitiSC-Medium',
+    fontSize:12.5,
+    fontWeight:'700',
+    color:'#9B9B9B',
   },
 
-  titleStyle: {
-    textAlign: 'left',
-    fontWeight: "900",
-    textAlignVertical: 'center',
-    color: '#9e9e9e',
-    fontSize: 16,
-    flexWrap: 'nowrap',
-  },
-  timeStyle: {
-    color: '#a3a3a3',
-    fontSize: 12,
-    fontFamily: 'STHeitiSC-Medium',
-    paddingTop: 1,
-  },
-  arrowStyle: {
-    // backgroundColor:'red',
-    width:6,
-    height:10,
-  }
 });
 
 AppRegistry.registerComponent('AwesomeProject', () => AwesomeProject);
