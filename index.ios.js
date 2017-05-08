@@ -42,112 +42,6 @@ export default class AwesomeProject extends Component {
           description: 'React Logo'
         },
       ],
-      imageArray3: [
-        {
-          url: 'http://insights.ubuntu.com/wp-content/uploads/8063/react-native-logo.jpg',
-          description: 'React Logo'
-        },
-        {
-          url: 'http://insights.ubuntu.com/wp-content/uploads/8063/react-native-logo.jpg',
-          description: 'React Logo'
-        },
-        {
-          url: 'http://insights.ubuntu.com/wp-content/uploads/8063/react-native-logo.jpg',
-          description: 'React Logo'
-        },
-      ],
-      imageArray4: [
-        {
-          url: 'http://insights.ubuntu.com/wp-content/uploads/8063/react-native-logo.jpg',
-          description: 'React Logo'
-        },
-        {
-          url: 'http://insights.ubuntu.com/wp-content/uploads/8063/react-native-logo.jpg',
-          description: 'React Logo'
-        },
-        {
-          url: 'http://insights.ubuntu.com/wp-content/uploads/8063/react-native-logo.jpg',
-          description: 'React Logo'
-        },
-        {
-          url: 'http://insights.ubuntu.com/wp-content/uploads/8063/react-native-logo.jpg',
-          description: 'React Logo'
-        },
-
-      ],
-      imageArray6: [
-        {
-          url: 'http://insights.ubuntu.com/wp-content/uploads/8063/react-native-logo.jpg',
-          description: 'React Logo'
-        },
-        {
-          url: 'http://insights.ubuntu.com/wp-content/uploads/8063/react-native-logo.jpg',
-          description: 'React Logo'
-        },
-        {
-          url: 'http://insights.ubuntu.com/wp-content/uploads/8063/react-native-logo.jpg',
-          description: 'React Logo'
-        },
-        {
-          url: 'http://insights.ubuntu.com/wp-content/uploads/8063/react-native-logo.jpg',
-          description: 'React Logo'
-        },
-        {
-          url: 'http://insights.ubuntu.com/wp-content/uploads/8063/react-native-logo.jpg',
-          description: 'React Logo'
-        },
-        {
-          url: 'http://insights.ubuntu.com/wp-content/uploads/8063/react-native-logo.jpg',
-          description: 'React Logo'
-        },
-
-      ],
-      imageArray11: [
-        {
-          url: 'http://insights.ubuntu.com/wp-content/uploads/8063/react-native-logo.jpg',
-          description: 'React Logo'
-        },
-        {
-          url: 'http://insights.ubuntu.com/wp-content/uploads/8063/react-native-logo.jpg',
-          description: 'React Logo'
-        },
-        {
-          url: 'http://insights.ubuntu.com/wp-content/uploads/8063/react-native-logo.jpg',
-          description: 'React Logo'
-        },
-        {
-          url: 'http://insights.ubuntu.com/wp-content/uploads/8063/react-native-logo.jpg',
-          description: 'React Logo'
-        },
-        {
-          url: 'http://insights.ubuntu.com/wp-content/uploads/8063/react-native-logo.jpg',
-          description: 'React Logo'
-        },
-        {
-          url: 'http://insights.ubuntu.com/wp-content/uploads/8063/react-native-logo.jpg',
-          description: 'React Logo'
-        },
-        {
-          url: 'http://insights.ubuntu.com/wp-content/uploads/8063/react-native-logo.jpg',
-          description: 'React Logo'
-        },
-        {
-          url: 'http://insights.ubuntu.com/wp-content/uploads/8063/react-native-logo.jpg',
-          description: 'React Logo'
-        },
-        {
-          url: 'http://insights.ubuntu.com/wp-content/uploads/8063/react-native-logo.jpg',
-          description: 'React Logo'
-        },
-        {
-          url: 'http://insights.ubuntu.com/wp-content/uploads/8063/react-native-logo.jpg',
-          description: 'React Logo'
-        },
-        {
-          url: 'http://insights.ubuntu.com/wp-content/uploads/8063/react-native-logo.jpg',
-          description: 'React Logo'
-        },
-      ],
     };
   }
 
@@ -159,19 +53,6 @@ export default class AwesomeProject extends Component {
       case 1:
         imageStyleString = `imgView1`;
         break;
-      case 2:
-        imageStyleString = `imgView2`;
-        break;
-      case 3:
-        imageStyleString = `imgView3`;
-        break;
-      case 4:
-        imageStyleString = `imgView4`;
-        break;
-      case 5:
-      case 6:
-        imageStyleString = `imgView6`;
-        break;
       default:
         imageStyleString = `imgView9`;
     }
@@ -182,7 +63,7 @@ export default class AwesomeProject extends Component {
       }
       return (
           <View  key={index} style={styles[imageStyleString]}>
-            <Image style={styles.imgIstyle} source={{uri: item.url}}></Image>
+            <Image style={styles.imgIstyle} source={{uri: item.url}}/>
             <Text style={styles.imgTDesc}>{item.description}</Text>
           </View>
       )
@@ -190,72 +71,18 @@ export default class AwesomeProject extends Component {
   }
 
   render() {
-    let imageStyleString = '';
-    const imageStyleNumber = this.state.imageArray11.length;
-    switch (imageStyleNumber) {
-      case 1:
-        imageStyleString = `imgView1`;
-        break;
-      case 2:
-        imageStyleString = `imgView2`;
-        break;
-      case 3:
-        imageStyleString = `imgView3`;
-        break;
-      case 4:
-        imageStyleString = `imgView4`;
-        break;
-      case 5:
-      case 6:
-        imageStyleString = `imgView6`;
-        break;
-      default:
-        imageStyleString = `imgView9`;
-    }
+    
     return (
-        <ScrollView style={styles.container}>
 
-
-          <Image resizeMode="contain" style={{width:70,height:100,backgroundColor:'red'}} source={{uri: 'http://insights.ubuntu.com/wp-content/uploads/8063/react-native-logo.jpg'}}
-          ></Image>
-
-          <View style={styles.rowVImageBox}>
-
-            {this.renderRow(this.state.imageArray1)}
-
-          </View>
-
-          <View style={styles.rowVImageBox2}>
-
-            {this.renderRow(this.state.imageArray2)}
+          <ScrollView style={styles.container}>
             
-          </View>
+            <View style={styles.rowVImageBox}>
 
-          <View style={styles.rowVImageBox}>
+              {this.renderRow(this.state.imageArray1)}
 
-            {this.renderRow(this.state.imageArray3)}
+            </View>
 
-          </View>
-
-          <View style={styles.rowVImageBox2}>
-
-            {this.renderRow(this.state.imageArray4)}
-
-          </View>
-
-          <View style={styles.rowVImageBox}>
-
-            {this.renderRow(this.state.imageArray6)}
-
-          </View>
-
-
-          <View style={styles.rowVImageBox2}>
-
-            {this.renderRow(this.state.imageArray11)}
-          </View>
-          
-        </ScrollView>
+          </ScrollView>
     );
   }
 }
@@ -271,7 +98,6 @@ const styles = StyleSheet.create({
     flexWrap:'wrap',
     width: 300,
     height: 300,
-    backgroundColor:'red',
     marginBottom:100,
   },
   rowVImageBox2: {
@@ -291,30 +117,6 @@ const styles = StyleSheet.create({
   imgView2: {
     width:140,
     height:290,
-    marginRight:5,
-    marginBottom:5,
-  },
-  imgView3: {
-    width:90,
-    height:290,
-    marginRight:5,
-    marginBottom:5,
-  },
-  imgView4: {
-    width:140,
-    height:140,
-    marginRight:5,
-    marginBottom:5,
-  },
-  imgView6: {
-    width:90,
-    height:140,
-    marginRight:5,
-    marginBottom:5,
-  },
-  imgView9: {
-    width:90,
-    height:90,
     marginRight:5,
     marginBottom:5,
   },
