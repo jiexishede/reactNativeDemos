@@ -28,13 +28,13 @@ export default class AwesomeProject extends Component {
     this.state = {
        imageArray1: [
          {
-           url: 'http://insights.ubuntu.com/wp-content/uploads/8063/react-native-logo.jpg',
+           url: 'https://facebook.github.io/react/img/logo_og.png',
            description: 'React Logo'
          },
        ],
       imageArray2: [
         {
-          url: 'http://insights.ubuntu.com/wp-content/uploads/8063/react-native-logo.jpg',
+          url: 'https://facebook.github.io/react/img/logo_og.png',
           description: 'React Logo'
         },
         {
@@ -52,6 +52,9 @@ export default class AwesomeProject extends Component {
     switch (imageStyleNumber) {
       case 1:
         imageStyleString = `imgView1`;
+        break;
+      case 2:
+        imageStyleString = `imgView2`;
         break;
       default:
         imageStyleString = `imgView9`;
@@ -81,6 +84,17 @@ export default class AwesomeProject extends Component {
               {this.renderRow(this.state.imageArray1)}
 
             </View>
+
+            <View style={styles.rowVImageBox}>
+
+              {this.renderRow(this.state.imageArray2)}
+
+            </View>
+
+            <Image
+                style={styles.imgView2}
+                source={{uri:'https://facebook.github.io/react/img/logo_og.png'}}
+            />
 
           </ScrollView>
     );
