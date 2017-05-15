@@ -33,7 +33,7 @@ export default class AwesomeProject extends Component {
         <Text  style={styles.textSTyle}>Hellow world</Text>
         {/*<View style={{width:width,height:390, backgroundColor:'red'}}>*/}
           <WebView
-              source={{uri: 'https://www.baidu.com'}}
+              source={{uri: 'http://localhost:63342/AwesomeProject/testHtml.html?_ijt=r1o26jv0n7te15n3lbfblsmvhs'}}
               style={styles.webStyle}
           />
 

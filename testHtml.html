@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+ <div id="bg"
+      style="background-color: red; width: 90px; height:300px"></div>
+
+<script>
+
+  window.onload=function(){
+
+    setTimeout( function () {
+      document.getElementById("bg").style.backgroundColor="#F90";
+      document.body.style.backgroundColor=`green`;
+    }, 1000)
+
+  }
+
+
+
+  document.addEventListener("message", function(event) {
+    console.log("Received post message", event);
+    alert(`成功了`);
+
+    document.getElementById("bg").style.backgroundColor="#f00";
+
+    logMessage(event.data);
+  }, false);
+
+  function logMessage(message) {
+    log.append((new Date()) + " " + message + "\n");
+  }
+
+
+
+
+
+</script>
+
+
+</body>
+</html>
