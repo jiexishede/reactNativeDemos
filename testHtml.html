@@ -6,38 +6,32 @@
 </head>
 <body>
 
- <div id="bg"
-      style="background-color: red; width: 90px; height:300px"></div>
+<div id="bg"
+     style="background-color: red; width: 90px; height:300px"></div>
 
 <script>
 
   window.onload=function(){
-
     setTimeout( function () {
       document.getElementById("bg").style.backgroundColor="#F90";
-      document.body.style.backgroundColor=`green`;
+      document.body.style.backgroundColor=`orange`;
     }, 1000)
-
   }
-
-
-
+  
   document.addEventListener("message", function(event) {
-    console.log("Received post message", event);
-    alert(`成功了`);
-
-    document.getElementById("bg").style.backgroundColor="#f00";
-
-    logMessage(event.data);
+    var TEMstirngOBJ  = JSON.parse(event.data);
+    var name = TEMstirngOBJ.name;
+    var time = TEMstirngOBJ.time;
+    var consoleDiv=document.createElement("div");
+    window.postMessage(JSON.stringify({content:'hi! RN'}));
+    consoleDiv.innerHTML=
+        `name: == ${name}  time: ===${time}`;
+    consoleDiv.setAttribute("style",'color :black');
+    consoleDiv.setAttribute("style", "background-color: red;");
+    consoleDiv.setAttribute("style", 'font-size :14px');
+      document.body.appendChild(consoleDiv);     
   }, false);
-
-  function logMessage(message) {
-    log.append((new Date()) + " " + message + "\n");
-  }
-
-
-
-
+  
 
 </script>
 
