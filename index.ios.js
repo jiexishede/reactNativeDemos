@@ -12,8 +12,11 @@ import {
   View,
   ListView,
   Image,
-  
+  WebView,
+  Dimensions,
 } from 'react-native';
+
+const {width} = Dimensions.get('window');
 
 export default class AwesomeProject extends Component {
 
@@ -27,7 +30,15 @@ export default class AwesomeProject extends Component {
   render() {
     return (
       <View style={styles.container}>
-          <Text style={styles.hollowWordText}>Hello world!</Text>
+        <Text  style={styles.textSTyle}>Hellow world</Text>
+        {/*<View style={{width:width,height:390, backgroundColor:'red'}}>*/}
+          <WebView
+              source={{uri: 'https://www.baidu.com'}}
+              style={styles.webStyle}
+          />
+
+        {/*</View>*/}
+           <Text  style={styles.textSTyle}>Hellow world</Text>
       </View>
     );
   }
@@ -38,11 +49,17 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'black',
   },
-  hollowWordText: {
-    color: 'white',
-    fontSize:52,
+  webStyle: {
+    flex:1,
+    width:width,
+    // height:300,
+    backgroundColor:'red',
+  },
+  textSTyle: {
+
+    color:'green',
+    backgroundColor:"#fafece"
   }
 
                           
