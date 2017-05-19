@@ -4,48 +4,24 @@
  * @flow
  */
 
-import React, { Component } from 'react';
+//
+// *******
+
+'use strict'
+
 import {
-  AppRegistry,
-  StyleSheet,
-  Text,
-  View,
-  ListView,
-  Image,
-  
+  AppRegistry
 } from 'react-native';
 
-export default class AwesomeProject extends Component {
+import Root from 'Root';
 
-  // Initialize the hardcoded data
-  constructor(props) {
-    super(props);
-    const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
-   
-  }
+/// 这个地方应该是 系统 命令 生成的 项目名称
+AppRegistry.registerComponent('AwesomeProject', () => Root);
+// import Playground from 'Playground';
 
-  render() {
-    return (
-      <View style={styles.container}>
-          <Text style={styles.hollowWordText}>Hello world!</Text>
-      </View>
-    );
-  }
-}
+// import MyQrCode from 'MyQrCode';
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'black',
-  },
-  hollowWordText: {
-    color: 'white',
-    fontSize:52,
-  }
-
-                          
-});
-
-AppRegistry.registerComponent('AwesomeProject', () => AwesomeProject);
+// AppRegistry.registerComponent('doctor', () => {
+//     Playground.config(MyQrCode);
+//     return Playground;
+// });                                                a
