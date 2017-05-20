@@ -8,6 +8,9 @@ import {
 	compose
 } from 'redux'
 
+import logger from 'redux-logger';
+
+
 import thunkMiddleware from 'redux-thunk';
 
 // import {
@@ -37,7 +40,7 @@ import Actions from 'Actions';
 // import { DefaultTargets, DefaultTreamentPlans, DefaultTreatmentGuidelines } from '../reducers/medicalTools';
 
 // debugger;
-global.reduxStore = createStore(Reducers, compose(applyMiddleware(thunkMiddleware, axiosMiddleware(global.axiosClient))));
+global.reduxStore = createStore(Reducers, compose(applyMiddleware(thunkMiddleware,logger(), axiosMiddleware(global.axiosClient))));
 
 // 30 days
 // const ExpireSpan = 30 * 24 * 60 * 60 * 1000;

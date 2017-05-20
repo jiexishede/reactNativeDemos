@@ -4,6 +4,7 @@ import React from 'react';
 import { StyleSheet, Dimensions, Platform, StatusBar } from 'react-native';
 import { TabNavigator, StackNavigator } from 'react-navigation';
 import iOSTempScreen from './iOSTempScreen';
+import iOSTempScreen11 from './iOSTempScreen11';
 
 import TabIcon from './TabIcon';
 
@@ -42,8 +43,8 @@ const tabscreen = (screen, path, label, src) => {
 };
 
 const MainTab = TabNavigator({
-    Home: tabscreen(iOSTempScreen, '/iOSTempScreen', '测试', 'home'),
-    // Patient: tabscreen(PatientScreen, '/patient', '患者', 'patient'),
+    Home: tabscreen(iOSTempScreen, '/iOSTempScreen', '首页', 'home'),
+    Patient: tabscreen(iOSTempScreen11, '/patient', '患者', 'patient'),
     // Doctor: tabscreen(DoctorScreen, '/doctor', '医生', 'doctor'),
     // Profile: tabscreen(ProfileScreen, '/profile', '我', 'profile'),
 }, {
